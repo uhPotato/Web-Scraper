@@ -15,7 +15,7 @@ var db = mongoose.connection;
 
 // check for error
 db.on("error", function (error) {
-    console.log("database error: ", err);
+    console.log("database error: ", error);
 });
 
 // confirm connection
