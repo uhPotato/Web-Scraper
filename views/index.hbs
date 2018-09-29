@@ -1,0 +1,58 @@
+<!-- NavBar -->
+<nav>
+	<div class="nav-wrapper red">
+		<a href="#!" class="brand-logo black-text center">Web-Scraper</a>
+		<!-- <ul class="right hide-on-med-and-down"> -->
+		<ul class="right">
+			<li>
+				<a class="waves-effect waves-light btn-large black" href="/scrape">Scrape TappedOut for Deck Lists</a>
+			</li>
+		</ul>
+	</div>
+</nav>
+
+<br><br>
+
+<!-- All the articles come next -->
+<div class="container">
+
+	<table>
+		<tbody>
+
+			{{#each articles}}
+			<div class=row>
+
+				<div class="col s8">
+					<a href="http://tappedout.net/{{this.link}}" class="collection-item red-text" target="_blank">{{this.title}}</a>
+				</div>
+				<div class="col s4">
+					<button class="noteButton waves-effect waves-light btn-flat red" id="{{this._id}}">Click for Notes!</button>
+				</div>
+
+			</div>
+			{{/each}}
+
+		</tbody>
+	</table>
+
+</div>
+
+<!-- modal that displays the user notes -->
+<div id="noteModal" class="modal modal-fixed-footer">
+
+    <div class="modal-content">
+		<p>Notes</p>
+		<ul class="messages collection"></ul>
+	</div>
+	
+	<div class="modal-footer">
+        <form name="noteForm" id="noteForm">
+                    <input required placeholder="Type a note here!" type="text" name="noteText" id="noteText">
+            <button class="btn red left" type="submit" id="noteButton">
+                Post Note!
+            </button>
+            <a href="/" class="modal-action modal-close waves-effect waves-light btn-flat">Close</a>
+        </form>
+    </div>
+
+</div>
